@@ -63,16 +63,6 @@ namespace BeerCalculator.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ColorChart {
-            get {
-                object obj = ResourceManager.GetObject("ColorChart", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap ColorChart1 {
             get {
                 object obj = ResourceManager.GetObject("ColorChart1", resourceCulture);

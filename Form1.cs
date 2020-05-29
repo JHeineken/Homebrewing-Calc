@@ -14,6 +14,8 @@ namespace BeerCalculator
 
     public partial class MainForm : Form
     {
+       
+       
         public MainForm()
         {
             InitializeComponent();
@@ -22,6 +24,7 @@ namespace BeerCalculator
         {
           
         }
+
 
         private void CalculateButtonClick(object sender, EventArgs e)
         {
