@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.RadioButton1gal = new System.Windows.Forms.RadioButton();
-            this.RadioButton3gal = new System.Windows.Forms.RadioButton();
             this.PoundsTextBox1 = new System.Windows.Forms.TextBox();
             this.GravityTextBox1 = new System.Windows.Forms.TextBox();
             this.poundsLabel = new System.Windows.Forms.Label();
@@ -48,32 +46,10 @@
             this.EstimatedOGTextBox = new System.Windows.Forms.TextBox();
             this.estimatedColorLabel = new System.Windows.Forms.Label();
             this.batchSizeLabel = new System.Windows.Forms.Label();
-            this.RadioButton5gal = new System.Windows.Forms.RadioButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.BatchSizeTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // RadioButton1gal
-            // 
-            this.RadioButton1gal.AutoSize = true;
-            this.RadioButton1gal.Checked = true;
-            this.RadioButton1gal.Location = new System.Drawing.Point(503, 48);
-            this.RadioButton1gal.Name = "RadioButton1gal";
-            this.RadioButton1gal.Size = new System.Drawing.Size(82, 21);
-            this.RadioButton1gal.TabIndex = 0;
-            this.RadioButton1gal.TabStop = true;
-            this.RadioButton1gal.Text = "1 Gallon";
-            this.RadioButton1gal.UseVisualStyleBackColor = true;
-            // 
-            // RadioButton3gal
-            // 
-            this.RadioButton3gal.AutoSize = true;
-            this.RadioButton3gal.Location = new System.Drawing.Point(503, 93);
-            this.RadioButton3gal.Name = "RadioButton3gal";
-            this.RadioButton3gal.Size = new System.Drawing.Size(89, 21);
-            this.RadioButton3gal.TabIndex = 1;
-            this.RadioButton3gal.Text = "3 Gallons";
-            this.RadioButton3gal.UseVisualStyleBackColor = true;
             // 
             // PoundsTextBox1
             // 
@@ -218,20 +194,9 @@
             this.batchSizeLabel.AutoSize = true;
             this.batchSizeLabel.Location = new System.Drawing.Point(510, 18);
             this.batchSizeLabel.Name = "batchSizeLabel";
-            this.batchSizeLabel.Size = new System.Drawing.Size(75, 17);
+            this.batchSizeLabel.Size = new System.Drawing.Size(108, 17);
             this.batchSizeLabel.TabIndex = 18;
-            this.batchSizeLabel.Text = "Batch Size";
-            // 
-            // RadioButton5gal
-            // 
-            this.RadioButton5gal.AutoSize = true;
-            this.RadioButton5gal.Location = new System.Drawing.Point(503, 140);
-            this.RadioButton5gal.Name = "RadioButton5gal";
-            this.RadioButton5gal.Size = new System.Drawing.Size(89, 21);
-            this.RadioButton5gal.TabIndex = 19;
-            this.RadioButton5gal.TabStop = true;
-            this.RadioButton5gal.Text = "5 Gallons";
-            this.RadioButton5gal.UseVisualStyleBackColor = true;
+            this.batchSizeLabel.Text = "Batch Size (gal)";
             // 
             // pictureBox1
             // 
@@ -244,13 +209,21 @@
             this.pictureBox1.TabIndex = 20;
             this.pictureBox1.TabStop = false;
             // 
+            // BatchSizeTextBox
+            // 
+            this.BatchSizeTextBox.Location = new System.Drawing.Point(534, 47);
+            this.BatchSizeTextBox.Name = "BatchSizeTextBox";
+            this.BatchSizeTextBox.Size = new System.Drawing.Size(58, 22);
+            this.BatchSizeTextBox.TabIndex = 21;
+            this.BatchSizeTextBox.Text = "1";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(659, 450);
+            this.Controls.Add(this.BatchSizeTextBox);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.RadioButton5gal);
             this.Controls.Add(this.batchSizeLabel);
             this.Controls.Add(this.estimatedColorLabel);
             this.Controls.Add(this.EstimatedOGTextBox);
@@ -268,8 +241,6 @@
             this.Controls.Add(this.poundsLabel);
             this.Controls.Add(this.GravityTextBox1);
             this.Controls.Add(this.PoundsTextBox1);
-            this.Controls.Add(this.RadioButton3gal);
-            this.Controls.Add(this.RadioButton1gal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "MainForm";
             this.Text = "Brewing Calculator";
@@ -281,9 +252,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.RadioButton RadioButton1gal;
-        private System.Windows.Forms.RadioButton RadioButton3gal;
         private System.Windows.Forms.TextBox PoundsTextBox1;
         private System.Windows.Forms.TextBox GravityTextBox1;
         private System.Windows.Forms.Label poundsLabel;
@@ -301,8 +269,8 @@
         private System.Windows.Forms.TextBox EstimatedOGTextBox;
         private System.Windows.Forms.Label estimatedColorLabel;
         private System.Windows.Forms.Label batchSizeLabel;
-        private System.Windows.Forms.RadioButton RadioButton5gal;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox BatchSizeTextBox;
     }
 }
 

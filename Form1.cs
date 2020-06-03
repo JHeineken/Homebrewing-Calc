@@ -10,7 +10,14 @@ using System.Windows.Forms;
 
 namespace BeerCalculator
 {
-    //https://brewgr.com/calculations/srm-beer-color - reference for SRM calculations
+    /*Upcoming implementations:
+    -Combobox (?) w/ database of grain types
+    -Search function
+    -Visual representation for user of ComboBox /search selection || of all grains to be calculated
+    -add/remove grains feature to compliment above point
+    */
+
+    //Consider if "Error Provider" class is worth implementing (give immediate feedback to user if entered info is invalid) 
 
     public partial class MainForm : Form
     {
@@ -25,56 +32,29 @@ namespace BeerCalculator
           
         }
 
-
         private void CalculateButtonClick(object sender, EventArgs e)
         {
-            //collect all user inputs and store as number variables
-            var g1pounds = Convert.ToDouble(PoundsTextBox1.Text);
-            var g2pounds = Convert.ToDouble(PoundsTextBox2.Text);
-            var g1gravpoints = Convert.ToDouble(GravityTextBox1.Text);
-            var g2gravpoints = Convert.ToDouble(GravityTextBox2.Text);
-            var g1SRM = Convert.ToDouble(SRMTextBox1.Text);
-            var g2SRM = Convert.ToDouble(SRMTextBox2.Text);
-            var srm1Result = new double();
-            var srm2Result = new double();
+            Calculations calc = new Calculations();
+            Grain g1 = new Grain();
+            Grain g2 = new Grain();
 
-            
-            
-            var gravResult = g1pounds * g1gravpoints + g2pounds * g2gravpoints;
+            //collect all user inputs
+            g1.pounds = Convert.ToDouble(PoundsTextBox1.Text);
+            g1.gPoints = Convert.ToDouble(GravityTextBox1.Text);
+            g1.srmPoints = Convert.ToDouble(SRMTextBox1.Text);
+            g2.gPoints = Convert.ToDouble(GravityTextBox2.Text);
+            g2.pounds = Convert.ToDouble(PoundsTextBox2.Text);
+            g2.srmPoints = Convert.ToDouble(SRMTextBox2.Text);
+            var gal = Convert.ToDouble(BatchSizeTextBox.Text);
 
-            
-            if (RadioButton5gal.Checked)
-            {
-                gravResult /= 5;
-                srm1Result = g1pounds * g1SRM / 5;
-                srm2Result = g2pounds * g2SRM / 5;
-            }
-            else
-           if (RadioButton3gal.Checked)
-            {
-                gravResult /= 3;
-                srm1Result = g1pounds * g1SRM / 3;
-                srm2Result = g2pounds * g2SRM / 3;
-            }
-           else
-            {
-                gravResult /= 1;
-                srm1Result = g1pounds * g1SRM / 1;
-                srm2Result = g2pounds * g2SRM / 1;
-            }
+            var srmResult = calc.GetColor(g1, g2, gal);
+            var gravResult = calc.GetGrav(g1, g2, gal);
 
-            var srmTotal = srm1Result + srm2Result;
 
-            //Morey equation - color adjustments
-            if(srmTotal>8)
-            {
-                srmTotal = srmTotal * .69 * 1.49;
-            }
-           //traditional "1.0xx" form
-            gravResult = gravResult * .001 + 1;
-            gravResult = Math.Round(gravResult, 3);
+            gravResult = calc.ConvertFormat(gravResult);
+
             EstimatedOGTextBox.Text = Convert.ToString(gravResult);
-            EstimatedColorTextBox.Text = Convert.ToString(srmTotal);
+            EstimatedColorTextBox.Text = Convert.ToString(srmResult);
 
         }
 

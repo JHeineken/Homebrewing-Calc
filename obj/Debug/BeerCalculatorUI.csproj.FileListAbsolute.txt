@@ -5,3 +5,7 @@ C:\Users\Joel\source\repos\BeerCalculator\BeerCalculator\obj\Debug\BeerCalculato
 C:\Users\Joel\source\repos\BeerCalculator\BeerCalculator\obj\Debug\BeerCalculator.pdb
 C:\Users\Joel\source\repos\BeerCalculator\BeerCalculator\obj\Debug\BeerCalculator.Properties.Resources.resources
 C:\Users\Joel\source\repos\BeerCalculator\BeerCalculator\obj\Debug\BeerCalculatorUI.csproj.CoreCompileInputs.cache
+C:\Users\Joel\source\repos\BeerCalculator\BeerCalculator\bin\Debug\BeerDB.db
+C:\Users\Joel\source\repos\BeerCalculator\BeerCalculator\bin\Debug\BeerCalculator.exe.config
+C:\Users\Joel\source\repos\BeerCalculator\BeerCalculator\bin\Debug\BeerCalculator.exe
+C:\Users\Joel\source\repos\BeerCalculator\BeerCalculator\bin\Debug\BeerCalculator.pdb

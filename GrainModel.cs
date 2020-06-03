@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace BeerCalculator
 {
-    public class GrainModel
+    public class Grain
     {
-        public float GravPoints { get; set; }
-        public float ColorPoints { get; set; }
-        public float Pounds { get; set; }
+        
+        public double pounds { get;  set; }
+        public double gPoints { get; set; }
+        public double srmPoints { get; set; } 
+
     }
+
 }
