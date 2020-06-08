@@ -59,26 +59,20 @@ namespace BeerCalculator
 
         private void TextBoxChange(object sender, EventArgs e)
         {
-            var boxes = Controls.OfType<TextBox>();
-            foreach (var box in boxes)
+            var box = sender as TextBox;
+            double test;
+            if (double.TryParse(box.Text, out test))
             {
-
-                foreach (char digit in box.Text)
-                {
-                    if (char.IsLetter(digit))
-                    {
-                        box.Text = "";
-                        errorProvider.SetError(grain1Label, "Calculator only accepts numbers 0 through 9");
-                        
-                    }
-                    else if (char.IsNumber(digit))
-                    {
-                        errorProvider.Clear();
-                    }
-               
-                }
+                errorProvider.Clear();
+            }
+            else
+            {
+                box.Text = string.Empty;
+                errorProvider.SetError(box, "Calculator only accepts numbers 0 through 9");
 
             }
+
+            
 
         }
     }
