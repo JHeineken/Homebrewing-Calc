@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            this.components = new System.ComponentModel.Container();
             this.PoundsTextBox1 = new System.Windows.Forms.TextBox();
             this.GravityTextBox1 = new System.Windows.Forms.TextBox();
             this.poundsLabel = new System.Windows.Forms.Label();
@@ -48,24 +48,29 @@
             this.batchSizeLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.BatchSizeTextBox = new System.Windows.Forms.TextBox();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // PoundsTextBox1
             // 
+            this.PoundsTextBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.PoundsTextBox1.Location = new System.Drawing.Point(123, 48);
             this.PoundsTextBox1.Name = "PoundsTextBox1";
             this.PoundsTextBox1.Size = new System.Drawing.Size(100, 22);
-            this.PoundsTextBox1.TabIndex = 2;
+            this.PoundsTextBox1.TabIndex = 0;
             this.PoundsTextBox1.Text = "0.0";
+            this.PoundsTextBox1.TextChanged += new System.EventHandler(this.TextBoxChange);
             // 
             // GravityTextBox1
             // 
             this.GravityTextBox1.Location = new System.Drawing.Point(229, 47);
             this.GravityTextBox1.Name = "GravityTextBox1";
             this.GravityTextBox1.Size = new System.Drawing.Size(100, 22);
-            this.GravityTextBox1.TabIndex = 3;
+            this.GravityTextBox1.TabIndex = 1;
             this.GravityTextBox1.Text = "0";
+            this.GravityTextBox1.TextChanged += new System.EventHandler(this.TextBoxChange);
             // 
             // poundsLabel
             // 
@@ -73,7 +78,7 @@
             this.poundsLabel.Location = new System.Drawing.Point(142, 18);
             this.poundsLabel.Name = "poundsLabel";
             this.poundsLabel.Size = new System.Drawing.Size(56, 17);
-            this.poundsLabel.TabIndex = 4;
+            this.poundsLabel.TabIndex = 7;
             this.poundsLabel.Text = "Pounds";
             // 
             // gravityLabel
@@ -82,7 +87,7 @@
             this.gravityLabel.Location = new System.Drawing.Point(233, 18);
             this.gravityLabel.Name = "gravityLabel";
             this.gravityLabel.Size = new System.Drawing.Size(96, 17);
-            this.gravityLabel.TabIndex = 5;
+            this.gravityLabel.TabIndex = 10;
             this.gravityLabel.Text = "Gravity Points";
             // 
             // SRMTextBox1
@@ -90,8 +95,9 @@
             this.SRMTextBox1.Location = new System.Drawing.Point(335, 47);
             this.SRMTextBox1.Name = "SRMTextBox1";
             this.SRMTextBox1.Size = new System.Drawing.Size(100, 22);
-            this.SRMTextBox1.TabIndex = 6;
+            this.SRMTextBox1.TabIndex = 2;
             this.SRMTextBox1.Text = "0";
+            this.SRMTextBox1.TextChanged += new System.EventHandler(this.TextBoxChange);
             // 
             // srmLabel
             // 
@@ -99,7 +105,7 @@
             this.srmLabel.Location = new System.Drawing.Point(352, 18);
             this.srmLabel.Name = "srmLabel";
             this.srmLabel.Size = new System.Drawing.Size(66, 17);
-            this.srmLabel.TabIndex = 7;
+            this.srmLabel.TabIndex = 11;
             this.srmLabel.Text = "Lovibond";
             // 
             // grain1Label
@@ -125,24 +131,27 @@
             this.PoundsTextBox2.Location = new System.Drawing.Point(123, 120);
             this.PoundsTextBox2.Name = "PoundsTextBox2";
             this.PoundsTextBox2.Size = new System.Drawing.Size(100, 22);
-            this.PoundsTextBox2.TabIndex = 10;
+            this.PoundsTextBox2.TabIndex = 3;
             this.PoundsTextBox2.Text = "0.0";
+            this.PoundsTextBox2.TextChanged += new System.EventHandler(this.TextBoxChange);
             // 
             // SRMTextBox2
             // 
             this.SRMTextBox2.Location = new System.Drawing.Point(335, 120);
             this.SRMTextBox2.Name = "SRMTextBox2";
             this.SRMTextBox2.Size = new System.Drawing.Size(100, 22);
-            this.SRMTextBox2.TabIndex = 11;
+            this.SRMTextBox2.TabIndex = 5;
             this.SRMTextBox2.Text = "0";
+            this.SRMTextBox2.TextChanged += new System.EventHandler(this.TextBoxChange);
             // 
             // GravityTextBox2
             // 
             this.GravityTextBox2.Location = new System.Drawing.Point(229, 120);
             this.GravityTextBox2.Name = "GravityTextBox2";
             this.GravityTextBox2.Size = new System.Drawing.Size(100, 22);
-            this.GravityTextBox2.TabIndex = 12;
+            this.GravityTextBox2.TabIndex = 4;
             this.GravityTextBox2.Text = "0";
+            this.GravityTextBox2.TextChanged += new System.EventHandler(this.TextBoxChange);
             // 
             // CalculateButton
             // 
@@ -168,6 +177,7 @@
             this.EstimatedColorTextBox.Location = new System.Drawing.Point(314, 240);
             this.EstimatedColorTextBox.Multiline = true;
             this.EstimatedColorTextBox.Name = "EstimatedColorTextBox";
+            this.EstimatedColorTextBox.ReadOnly = true;
             this.EstimatedColorTextBox.Size = new System.Drawing.Size(116, 22);
             this.EstimatedColorTextBox.TabIndex = 15;
             this.EstimatedColorTextBox.Text = "0";
@@ -176,6 +186,7 @@
             // 
             this.EstimatedOGTextBox.Location = new System.Drawing.Point(169, 240);
             this.EstimatedOGTextBox.Name = "EstimatedOGTextBox";
+            this.EstimatedOGTextBox.ReadOnly = true;
             this.EstimatedOGTextBox.Size = new System.Drawing.Size(100, 22);
             this.EstimatedOGTextBox.TabIndex = 16;
             this.EstimatedOGTextBox.Text = "0.00";
@@ -201,7 +212,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Image = global::BeerCalculator.Properties.Resources.ColorChart1;
             this.pictureBox1.Location = new System.Drawing.Point(12, 268);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(580, 141);
@@ -214,13 +225,21 @@
             this.BatchSizeTextBox.Location = new System.Drawing.Point(534, 47);
             this.BatchSizeTextBox.Name = "BatchSizeTextBox";
             this.BatchSizeTextBox.Size = new System.Drawing.Size(58, 22);
-            this.BatchSizeTextBox.TabIndex = 21;
+            this.BatchSizeTextBox.TabIndex = 6;
             this.BatchSizeTextBox.Text = "1";
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.BlinkRate = 450;
+            this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+            this.errorProvider.ContainerControl = this;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(659, 450);
             this.Controls.Add(this.BatchSizeTextBox);
             this.Controls.Add(this.pictureBox1);
@@ -246,6 +265,7 @@
             this.Text = "Brewing Calculator";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -271,6 +291,7 @@
         private System.Windows.Forms.Label batchSizeLabel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox BatchSizeTextBox;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
 

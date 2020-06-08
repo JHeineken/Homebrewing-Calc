@@ -11,13 +11,13 @@ using System.Windows.Forms;
 namespace BeerCalculator
 {
     /*Upcoming implementations:
+    -Finish BeerDB.db implementation (nuget packages for functionality)
     -Combobox (?) w/ database of grain types
     -Search function
-    -Visual representation for user of ComboBox /search selection || of all grains to be calculated
+
+    -Visual representation for user of ComboBox / search selection  -- of all grains to be calculated
     -add/remove grains feature to compliment above point
     */
-
-    //Consider if "Error Provider" class is worth implementing (give immediate feedback to user if entered info is invalid) 
 
     public partial class MainForm : Form
     {
@@ -34,11 +34,10 @@ namespace BeerCalculator
 
         private void CalculateButtonClick(object sender, EventArgs e)
         {
-            Calculations calc = new Calculations();
+            
             Grain g1 = new Grain();
             Grain g2 = new Grain();
 
-            //collect all user inputs
             g1.pounds = Convert.ToDouble(PoundsTextBox1.Text);
             g1.gPoints = Convert.ToDouble(GravityTextBox1.Text);
             g1.srmPoints = Convert.ToDouble(SRMTextBox1.Text);
@@ -47,17 +46,40 @@ namespace BeerCalculator
             g2.srmPoints = Convert.ToDouble(SRMTextBox2.Text);
             var gal = Convert.ToDouble(BatchSizeTextBox.Text);
 
-            var srmResult = calc.GetColor(g1, g2, gal);
-            var gravResult = calc.GetGrav(g1, g2, gal);
+            var srmResult = Calculations.GetColor(g1, g2, gal);
+            var gravResult = Calculations.GetGrav(g1, g2, gal);
 
 
-            gravResult = calc.ConvertFormat(gravResult);
+            gravResult = Calculations.ConvertFormat(gravResult);
 
             EstimatedOGTextBox.Text = Convert.ToString(gravResult);
             EstimatedColorTextBox.Text = Convert.ToString(srmResult);
 
         }
 
-       
+        private void TextBoxChange(object sender, EventArgs e)
+        {
+            var boxes = Controls.OfType<TextBox>();
+            foreach (var box in boxes)
+            {
+
+                foreach (char digit in box.Text)
+                {
+                    if (char.IsLetter(digit))
+                    {
+                        box.Text = "";
+                        errorProvider.SetError(grain1Label, "Calculator only accepts numbers 0 through 9");
+                        
+                    }
+                    else if (char.IsNumber(digit))
+                    {
+                        errorProvider.Clear();
+                    }
+               
+                }
+
+            }
+
+        }
     }
 }
