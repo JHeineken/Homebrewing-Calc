@@ -12,10 +12,10 @@ namespace BeerCalculator
 {
     /*Upcoming implementations:
     -Finish BeerDB.db implementation (nuget packages for functionality)
-    -Combobox (?) w/ database of grain types
     -Search function
+    -Create Class Library!
     -Find a way to abstract away the assigning of variables
-
+    -Combobox (?) w/ database of grain types -- data binding
     -Visual representation for user of ComboBox / search selection  -- of all grains to be calculated
     -add/remove grains feature to compliment above point
     */
