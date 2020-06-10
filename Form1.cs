@@ -14,6 +14,7 @@ namespace BeerCalculator
     -Finish BeerDB.db implementation (nuget packages for functionality)
     -Combobox (?) w/ database of grain types
     -Search function
+    -Find a way to abstract away the assigning of variables
 
     -Visual representation for user of ComboBox / search selection  -- of all grains to be calculated
     -add/remove grains feature to compliment above point
@@ -21,8 +22,7 @@ namespace BeerCalculator
 
     public partial class MainForm : Form
     {
-       
-       
+              
         public MainForm()
         {
             InitializeComponent();
@@ -71,8 +71,6 @@ namespace BeerCalculator
                 errorProvider.SetError(box, "Calculator only accepts numbers 0 through 9");
 
             }
-
-            
 
         }
     }

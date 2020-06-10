@@ -227,6 +227,7 @@
             this.BatchSizeTextBox.Size = new System.Drawing.Size(58, 22);
             this.BatchSizeTextBox.TabIndex = 6;
             this.BatchSizeTextBox.Text = "1";
+            this.BatchSizeTextBox.TextChanged += new System.EventHandler(this.TextBoxChange);
             // 
             // errorProvider
             // 
